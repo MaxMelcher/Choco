@@ -40,4 +40,5 @@ function global:au_GetLatest {
     }
 }
 
+# -NoCheckChocoVersion $true
 update -ChecksumFor none
