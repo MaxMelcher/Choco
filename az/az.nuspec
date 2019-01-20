@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>az</id>
+    <version>1.1.0.25353</version>
+    <packageSourceUrl>https://github.com/maxmelcher/Choco/tree/master/automatic/azure-powershell</packageSourceUrl>
+    <owners>maxmelcher</owners>
+    <title>Azure PowerShell (Az module)</title>
+    <authors>Microsoft</authors>
+    <projectUrl>https://github.com/Azure/azure-powershell</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/maxmelcher/ChocoPackages/c5b46bdfe07ce816de0ffc3b1366aab4c4e5a240/icons/MicrosoftAzure-32px.png</iconUrl>
+    <licenseUrl>https://github.com/Azure/azure-powershell/blob/master/LICENSE.txt</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <docsUrl>https://docs.microsoft.com/en-us/powershell/azure/overview</docsUrl>
+    <bugTrackerUrl>https://github.com/Azure/azure-powershell/issues</bugTrackerUrl>
+    <tags>az microsoft azure powershell module azurerm resource manager admin</tags>
+    <summary>Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. Azure PowerShell uses .NET Standard, making it available for Windows, macOS, and Linux. Azure PowerShell is also available on Azure Cloud Shell.</summary>
+    <description><![CDATA[Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. Azure PowerShell uses .NET Standard, making it available for Windows, macOS, and Linux. Azure PowerShell is also available on Azure Cloud Shell.
+
+This documentation describes the new Az module for Azure PowerShell. This new module is written from the ground up in .NET Standard. Using .NET Standard allows Azure PowerShell to run under PowerShell 5.x on Windows or PowerShell 6 on any platform. The Az module is now the intended way to interact with Azure through PowerShell. AzureRM will continue to get bug fixes, but no longer receive new features.
+
+Learn the full details about the new module, including how commands have been renamed and the maintenance plans for AzureRM, in the [Introducing the Azure PowerShell Az module](https://docs.microsoft.com/en-us/powershell/azure/new-azureps-module-az). If you want to get started with using the new module right away, see [Migrate from AzureRM to Az](https://docs.microsoft.com/en-us/powershell/azure/migrate-from-azurerm-to-az).
+
+**NOTE**: This is an automatically updated package. If you find it is out of date by more than a week, please contact the maintainer(s) and let them know the package is no longer updating correctly.
+]]></description>
+    <releaseNotes>
+##### Software
+[Azure PowerShell release notes](https://docs.microsoft.com/en-us/powershell/azure/release-notes-azureps)
+##### Package
+## 1.1.0 - January 2019
+#### Az.Accounts
+* Add 'Local' Scope to Enable-AzureRmAlias
+
+#### Az.Compute
+* Name is now optional in ID parameter set for Restart/Start/Stop/Remove/Set-AzVM and Save-AzVMImage
+* Updated the description of ID in help files
+* Fix backward compatibility issue with Az.Accounts module
+
+#### Az.DataLakeStore
+* Update the sdk version of dataplane to 1.1.14 for SDK fixes.
+    - Fix handling of negative acesstime and modificationtime for getfilestatus and liststatus, Fix async cancellation token
+
+#### Az.EventGrid
+* Updated to use the 2019-01-01 API version.
+* Update the following cmdlets to support new scenario in 2019-01-01 API version
+    - New-AzureRmEventGridSubscription: Add new optional parameters for specifying:
+        - Event Time-To-Live,
+        - Maximum number of delivery attempts for the events,
+        - Dead letter endpoint.
+    - Update-AzureRmEventGridSubscription: Add new optional parameters for specifying:
+        - Event Time-To-Live,
+        - Maximum number of delivery attempts for the events,
+        - Dead letter endpoint.
+* Add new enum values (namely, storageQueue and hybridConnection) for EndpointType option in New-AzureRmEventGridSubscription and Update-AzureRmEventGridSubscription cmdlets.
+* Show warning message if creating or updating the event subscription is expected to entail manual action from user.
+
+#### Az.IotHub
+* Updated to the latest version of the IotHub SDK
+
+#### Az.LogicApp
+* Get-AzLogicApp lists all without specified Name
+
+#### Az.Resources
+* Fix parameter set issue when providing '-ODataQuery' and '-ResourceId' parameters for 'Get-AzResource'
+    - More information here: https://github.com/Azure/azure-powershell/issues/7875
+* Fix handling of the -Custom parameter in New/Set-AzPolicyDefinition
+* Fix typo in New-AzDeployment documentation
+* Made '-MailNickname' parameter mandatory for 'New-AzADUser'
+    - More information here: https://github.com/Azure/azure-powershell/issues/8220
+
+#### Az.SignalR
+* Fix backward compatibility issue with Az.Accounts module
+
+#### Az.Sql
+* Converted the Storage management client dependency to the common SDK implementation.
+
+#### Az.Storage
+* Set the StorageAccountName of Storage context as the real Storage Account Name, when it's created with Sas Token, OAuth or Anonymous
+    - New-AzStorageContext
+* Create Sas Token of Blob Snapshot Object with '-FullUri' parameter, fix the returned Uri to be the sanpshot Uri
+    - New-AzStorageBlobSASToken
+
+#### Az.Websites
+* Fixed a date parsing bug in 'Get-AzDeletedWebApp'
+* Fix backward compatibility issue with Az.Accounts module
+    </releaseNotes>
+    <dependencies>
+      <!--<dependency id="dotnetfx" version="4.7.2.20180712" />-->
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\*.ps1" target="tools" />
+  </files>
+</package>
